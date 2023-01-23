@@ -1,6 +1,9 @@
+using System;
+using System.Linq;
 using WebApi.DBOperations;
+using WebApi.Entities;
 
-namespace webApi.Application.GenreOperations.createGenre
+namespace webApi.Application.GenreOperations.CreateGenre
 {
     public class CreateGenreCommand
     {
@@ -13,8 +16,15 @@ namespace webApi.Application.GenreOperations.createGenre
         }
 
         public void Handle()
-        { 
-            
+        {
+            var genre = _context.Genres.SingleOrDefault(x => x.Name == Model.Name);
+            if(genre is not null)
+               throw new InvalidOperationException("Kitap Türü Zaten Mevcut.");
+
+            genre = new Genre();
+            genre.Name = Model.Name;
+            _context.Genres.Add(genre);
+            _context.SaveChanges();
         }
     }
 
