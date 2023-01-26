@@ -24,7 +24,7 @@ namespace webApi.Application.GenreOperations.UpdateGenre
             if (_context.Genres.Any(x => x.Name.ToLower() == Model.Name.ToLower() && x.Id != GenreId))
                 throw new InvalidOperationException("Aynı İsimli Bir Kitap Türü Zaten Mevcut.");
 
-            genre.Name= Model.Name.Trim() == default ? Model.Name : genre.Name;
+            genre.Name= string.IsNullOrEmpty(Model.Name.Trim()) ? genre.Name : Model.Name;
             genre.IsActive = Model.IsActive;
             _context.SaveChanges();    
         }
@@ -33,5 +33,10 @@ namespace webApi.Application.GenreOperations.UpdateGenre
     {
         public string Name { get; set; }
         public bool IsActive { get; set; } = true;
+
+        public static implicit operator UpdateGenreModel(UpdateGenreCommand v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

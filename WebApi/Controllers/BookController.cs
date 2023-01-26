@@ -11,11 +11,12 @@ using WebApi.BookOperations.GetBooks;
 using WebApi.BookOperations.UpdateBook;
 using WebApi.DBOperations;
 using static WebApi.BookOperations.CreateBook.CreateBookCommand;
+using static WebApi.BookOperations.UpdateBook.UpdateBookCommand;
 
-namespace WebApi.AddControllers
+namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("[Controller]")]
+    [Route("api/[controller]/[action]")]
     public class BookController : ControllerBase
     {
 
