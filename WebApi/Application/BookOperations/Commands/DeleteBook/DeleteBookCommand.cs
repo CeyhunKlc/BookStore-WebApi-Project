@@ -5,7 +5,7 @@ using WebApi.DBOperations;
 namespace WebApi.BookOperations.CreateBook
 { 
     public class DeleteBookCommand
-    {
+    {   
         private readonly BookStoreDBContext _dbContext;
         public int BookId { get; set; }
         

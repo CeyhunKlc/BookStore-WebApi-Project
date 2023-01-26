@@ -14,6 +14,26 @@ namespace WebApi.DBOperations
                 {
                     return;
                 }
+
+                context.Authors.AddRange(
+                    new Author
+                    {
+                        Name = "Orhan Pamuk"
+                    },
+                    new Author
+                    {
+                        Name = "Yaşar Kemal"
+                    },
+                    new Author
+                    {
+                        Name = "Oğuz Atay"
+                    },
+                    new Author
+                    {
+                        Name = "Namık Kemal"
+                    }
+                );
+
                 context.Genres.AddRange(
                     new Genre
                     {
