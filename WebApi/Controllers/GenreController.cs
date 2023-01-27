@@ -11,13 +11,7 @@ using WebApi.DBOperations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using FluentValidation.Results;
-using WebApi.BookOperations.GetBookDetail;
-using WebApi.BookOperations.GetBooks;
-using WebApi.BookOperations.UpdateBook;
-using static WebApi.BookOperations.CreateBook.CreateBookCommand;
-using static WebApi.BookOperations.UpdateBook.UpdateBookCommand;
 using webApi.Application.GenreOperations.createGenre;
 
 namespace WebApi.Controllers

@@ -6,23 +6,23 @@ namespace WebApi.Application.AuthorOperation.Commands.DeleteAuthor
 { 
     public class DeleteAuthorCommand
     {
-        private readonly BookStoreDBContext  _dbContext;
+        private readonly BookStoreDBContext  _Context;
         public int AuthorId {get; set;}
 
-        public DeleteAuthorCommand(BookStoreDBContext dBContext, BookStoreDBContext dbContext)
+        public DeleteAuthorCommand(BookStoreDBContext Context)
         {
-            _dbContext = dbContext;
+            _Context = Context;
         }
 
         public void Handle()
         { 
-            var author = _dbContext.Books.SingleOrDefault(x => x.Id == AuthorId);
+            var author = _Context.Books.SingleOrDefault(x => x.Id == AuthorId);
             if (author == null)
                 throw new InvalidOperationException("Silinecek Yazar Bulunamadı!");
 
 
-            _dbContext.Books.Remove(author);
-            _dbContext.SaveChanges();  
+            _Context.Books.Remove(author);
+            _Context.SaveChanges();  
         }
     }    
 }        
