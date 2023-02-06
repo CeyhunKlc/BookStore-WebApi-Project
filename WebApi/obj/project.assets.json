@@ -1222,11 +1222,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Ceyhun\\Desktop\\Pratikler2\\BookStore\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Ceyhun\\Desktop\\Pratikler2\\BookStore\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "c:\\Users\\Ceyhun\\Desktop\\Pratikler2\\BookStore\\WebApi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\Ceyhun\\Desktop\\Pratikler2\\BookStore\\WebApi\\WebApi.csproj",
       "packagesPath": "C:\\Users\\Ceyhun\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Ceyhun\\Desktop\\Pratikler2\\BookStore\\WebApi\\obj\\",
+      "outputPath": "C:\\Users\\Ceyhun\\Desktop\\Pratikler2\\BookStore\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ceyhun\\AppData\\Roaming\\NuGet\\NuGet.Config",

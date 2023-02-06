@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebApi.Entities;
 
-namespace WebApi.DbOprations
+namespace WebApi.DBOperations
 {
  
     public interface IBookStoreDbContext
