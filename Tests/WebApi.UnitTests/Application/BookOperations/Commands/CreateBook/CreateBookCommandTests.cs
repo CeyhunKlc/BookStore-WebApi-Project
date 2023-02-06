@@ -7,7 +7,7 @@ using WebApi.Entities;
 using Xunit;
 using static WebApi.BookOperations.CreateBook.CreateBookCommand;
 
-namespace Application.BookOperations.Commands.CreateCommand
+namespace Application.BookOperations.Commands.CreateBook
 {
     public class CreateBookCommandTests : IClassFixture<CommonTestFixture>
     {
@@ -33,7 +33,9 @@ namespace Application.BookOperations.Commands.CreateCommand
             //act (çalıştırma) & Assert (Doğrulama)
             FluentActions
                .Invoking(()=> command.Handle())
-               .Should().Throw<InvalidOperationException>().And.Message.Should().Be("Kitap Zaten Mevcut");
+               .Should().Throw<InvalidOperationException>().And.Message.Should().Be("Kitap Zaten Mevcut.");
+               
+               
         }
     }
 }
