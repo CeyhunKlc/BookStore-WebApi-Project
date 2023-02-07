@@ -32,10 +32,10 @@ namespace Application.BookOperations.Commands.CreateBook
             CreateBookCommand command = new CreateBookCommand(null, null);
             command.Model = new CreateBookModel()
             {
-                Title = Title,
-                PageCount = PageCount,
+                Title = title,
+                PageCount = pageCount,
                 PublishDate = DateTime.Now.Date.AddYears(-1),
-                GenreId =0
+                GenreId = genreId
             };
             //act
             CreateBookCommandValidator validator = new CreateBookCommandValidator();
@@ -44,7 +44,41 @@ namespace Application.BookOperations.Commands.CreateBook
             //Assert
             result.Errors.Count.Should().BeGreaterThan(0);
         } 
-       
+        [fact]
+        public void WhenDateTimeEqualNowIsGıven.validator.ShouldBeReturnError()
+        { 
+            CreateBookCommand command = new CreateBookCommand(null,null);
+            command.Model = new CreateBookModel()
+            {
+                Title = "Lord Of The Rings",
+                PageCount = 100,
+                PublishDate = DateTime.Now.Date,
+                GenreId =1
+            };
 
+            CreateBookCommandValidator validator = new CreateBookCommandValidator();
+            var result = validator.Validate(command);
+
+            result.Errors.Count.Should().BeGreaterThan(0);  
+        }
+
+
+         [fact]
+        public void WhenValidInputsAreaGiven.validator.ShouldNotBeError()
+        { 
+            CreateBookCommand command = new CreateBookCommand(null,null);
+            command.Model = new CreateBookModel()
+            {
+                Title = "Lord Of The Rings",
+                PageCount = 100,
+                PublishDate = DateTime.Now.Date.AddYears(-2),
+                GenreId =1
+            };
+
+            CreateBookCommandValidator validator = new CreateBookCommandValidator();
+            var result = validator.Validate(command);
+
+            result.Errors.Count.Should().Equal(0);
+        }
     }
 }
