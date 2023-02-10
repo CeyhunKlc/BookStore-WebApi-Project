@@ -32,10 +32,27 @@ namespace Application.BookOperations.Commands.CreateBook
 
             //act (çalıştırma) & Assert (Doğrulama)
             FluentActions
-               .Invoking(()=> command.Handle())
+               .Invoking(() => command.Handle())
                .Should().Throw<InvalidOperationException>().And.Message.Should().Be("Kitap Zaten Mevcut.");
-               
-               
+        }
+
+        [Fact]
+        public void WhenValidInputsAreaGiven_Book_shouldBeCreated()
+        {
+            //Arrange
+            CreateBookCommand command = new CreateBookCommand(_context, _mappper);
+            CreateBookModel model = new CreateBookModel() { Title = "Hobbit", PageCount = 1000, PublishDate = DateTim.Now.Date.AddYears(-10), GenreId = 1 };
+            command.Model = model;
+
+            //Act
+            FluentActions.Invoking(()=>command.Handle()).Invoke();
+
+            //Assert
+            var book = _context.Books.SingleOrDefaut(book => book.Title == model.Title );
+            book.Should().NotBeNull();
+            book.PageCount.Should().Be(model.PageCount);
+            book.PublishDate.Should().Be(model.PublishDate);
+            book.GenreId.Should().Be(model.GenreId);
         }
     }
 }

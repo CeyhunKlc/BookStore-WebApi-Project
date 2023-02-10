@@ -8,4 +8,8 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApi.UnitTests
+<<<<<<< HEAD
 build_property.ProjectDir = c:\Users\Ceyhun\Desktop\Pratikler2\BookStore\Tests\WebApi.UnitTests\
+=======
+build_property.ProjectDir = C:\Users\kilic\OneDrive\Masaüstü\son\BookStore-WebApi-Project\Tests\WebApi.UnitTests\
+>>>>>>> d0cf29446225f1a348487f1f5343c5e885125d16
