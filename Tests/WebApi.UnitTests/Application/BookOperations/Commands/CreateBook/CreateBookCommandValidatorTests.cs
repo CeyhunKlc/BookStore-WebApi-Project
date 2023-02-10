@@ -28,6 +28,7 @@ namespace Application.BookOperations.Commands.CreateBook
 
         public void WhenInvalidInputsAreaGiven_Validator_ShouldBeReturnErrors(String Title, int PageCount , int GenreId)
         {
+            //Lhkjlhlhol
             //Arrange
             CreateBookCommand command = new CreateBookCommand(null, null);
             command.Model = new CreateBookModel()
