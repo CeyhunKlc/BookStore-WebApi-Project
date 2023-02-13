@@ -1,5 +1,4 @@
 using FluentValidation;
-using webApi.Application.GenreOperations.CreateGenre;
 using WebApi.BookOperations.UpdateAuthor;
 
 namespace webApi.Application.AuthorOperations.CreateAuthor

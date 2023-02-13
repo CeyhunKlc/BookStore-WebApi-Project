@@ -26,9 +26,9 @@ namespace Application.BookOperations.Commands.CreateBook
         [InlineData("",100,1)]
 
 
-        public void WhenInvalidInputsAreaGiven_Validator_ShouldBeReturnErrors(String Title, int PageCount , int GenreId)
+        public void WhenInvalidInputsAreaGiven_Validator_ShouldBeReturnErrors(String title, int pageCount , int genreId)
         {
-            //Lhkjlhlhol
+
             //Arrange
             CreateBookCommand command = new CreateBookCommand(null, null);
             command.Model = new CreateBookModel()
@@ -36,7 +36,7 @@ namespace Application.BookOperations.Commands.CreateBook
                 Title = title,
                 PageCount = pageCount,
                 PublishDate = DateTime.Now.Date.AddYears(-1),
-                GenreId = genreId
+                GenreId = genreId,
             };
             //act
             CreateBookCommandValidator validator = new CreateBookCommandValidator();
@@ -45,8 +45,8 @@ namespace Application.BookOperations.Commands.CreateBook
             //Assert
             result.Errors.Count.Should().BeGreaterThan(0);
         } 
-        [fact]
-        public void WhenDateTimeEqualNowIsGıven.validator.ShouldBeReturnError()
+        [Fact]
+        public void WhenDateTimeEqualNowIsGiven_Validator_ShouldBeReturnError()
         { 
             CreateBookCommand command = new CreateBookCommand(null,null);
             command.Model = new CreateBookModel()
@@ -64,8 +64,8 @@ namespace Application.BookOperations.Commands.CreateBook
         }
 
 
-         [fact]
-        public void WhenValidInputsAreaGiven.validator.ShouldNotBeError()
+         [Fact]
+        public void WhenValidInputsAreGiven_Validator_ShouldNotBeReturnError()
         { 
             CreateBookCommand command = new CreateBookCommand(null,null);
             command.Model = new CreateBookModel()
@@ -79,7 +79,7 @@ namespace Application.BookOperations.Commands.CreateBook
             CreateBookCommandValidator validator = new CreateBookCommandValidator();
             var result = validator.Validate(command);
 
-            result.Errors.Count.Should().Equal(0);
+            result.Errors.Count.Should().Equals(0);
         }
     }
 }

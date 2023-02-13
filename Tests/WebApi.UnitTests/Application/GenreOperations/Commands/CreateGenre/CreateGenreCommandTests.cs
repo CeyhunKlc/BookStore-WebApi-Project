@@ -1,11 +1,10 @@
 using AutoMapper;
 using FluentAssertions;
 using TestSetup;
-using WebApi.GenreOperations.CreateGenre;
 using WebApi.DBOperations;
 using WebApi.Entities;
 using Xunit;
-using static WebApi.GenreOperations.CreateGenre.CreateGenreCommand;
+using webApi.Application.GenreOperations.CreateGenre;
 
 namespace Application.GenreOperations.Commands.CreateGenre
 {
@@ -42,7 +41,7 @@ namespace Application.GenreOperations.Commands.CreateGenre
             FluentActions.Invoking(()=>command.Handle()).Invoke();
 
         
-            var genre = _context.Genres.SingleOrDefaut(genre => genre.Title == model.Name );
+            var genre = _context.Genres.SingleOrDefault(genre => genre.Title ==command.Model.Name );
             genre.Should().NotBeNull();
            
         }

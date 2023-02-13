@@ -4,6 +4,7 @@ using AutoMapper;
 using FluentAssertions;
 using TestSetup;
 using WebApi.BookOperations.CreateBook;
+using WebApi.BookOperations.GetBookDetail;
 using WebApi.DBOperations;
 using WebApi.Entities;
 using Xunit;
@@ -39,10 +40,10 @@ namespace Application.BookOperations.Queries
            bookDetailQuery.BookId=1;
 
            
-            FluentActions.Invoking(()=>command.Handle()).Invoke();
+            FluentActions.Invoking(()=>bookDetailQuery.Handle()).Invoke();
 
             //Assert
-            var book = _context.Books.SingleOrDefaut(book => book.Id == bookDetailQuery.BookId );
+            var book = _context.Books.SingleOrDefault(book => book.Id == bookDetailQuery.BookId );
             book.Should().NotBeNull();
             
         }

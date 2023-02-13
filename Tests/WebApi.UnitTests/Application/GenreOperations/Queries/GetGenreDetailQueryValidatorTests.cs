@@ -1,6 +1,6 @@
 using FluentAssertions;
 using TestSetup;
-using WebApi.Application.GenreOperations.Queries.GetGenreDetail;
+using webApi.Application.GenreOperations.Queries.GetGenreDetail;
 using Xunit;
 
 namespace Application.GenreOperations.Queries
@@ -15,7 +15,7 @@ namespace Application.GenreOperations.Queries
         public void WhenInvalidGenreIdisGiven_Validator_ShouldBeReturnErrors(int Genreid)
         { 
             GetGenreDetailQuery query = new GetGenreDetailQuery(null,null);
-            query.GenreId=genreid;
+            query.GenreId=Genreid;
 
             GetGenreDetailQueryValidator validations = new GetGenreDetailQueryValidator();
             var result = validations.Validate(query);
@@ -26,7 +26,7 @@ namespace Application.GenreOperations.Queries
         [InlineData(1)]
         [InlineData(2)]
         [Theory]
-        public void WhenInvalidGenreIdisGiven_Validator_ShouldBeReturnErrors(int genreid)
+        public void WhenInvalidGenreidIsGiven_Validator_ShouldNotBeReturnErrors(int genreid)
         { 
            GetGenreDetailQuery query = new GetGenreDetailQuery(null,null);
            query.GenreId=genreid;  

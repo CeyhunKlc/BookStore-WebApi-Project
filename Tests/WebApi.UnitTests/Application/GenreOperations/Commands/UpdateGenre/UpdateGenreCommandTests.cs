@@ -1,11 +1,10 @@
 using AutoMapper;
 using FluentAssertions;
 using TestSetup;
-using WebApi.GenreOperations.UpdateGenre;
+using webApi.Application.GenreOperations.UpdateGenre;
 using WebApi.DBOperations;
 using WebApi.Entities;
 using Xunit;
-using static WebApi.GenreOperations.UpdateGenre.UpdateGenreCommand;
 
 namespace Application.GenreOperations.Commands.UpdateGenre
 {
@@ -38,7 +37,7 @@ namespace Application.GenreOperations.Commands.UpdateGenre
             _context.SaveChanges();
 
             UpdateGenreCommand command = new UpdateGenreCommand(_context);
-            command.genreId = 2;
+            command.GenreId = 2;
             command.Model = new UpdateGenreModel(){Name="Science Fiction"};
 
              FluentActions.Invoking(()=> command.Handle())
@@ -56,7 +55,7 @@ namespace Application.GenreOperations.Commands.UpdateGenre
 
                FluentActions.Invoking(()=> command.Handle()).Invoke();
 
-               var genre = _context.Genres.SingleOrDefault(genre=> genre.Id == command.genreId);
+               var genre = _context.Genres.SingleOrDefault(genre=> genre.Id == command.GenreId);
                genre.Should().NotBeNull();
          }
 

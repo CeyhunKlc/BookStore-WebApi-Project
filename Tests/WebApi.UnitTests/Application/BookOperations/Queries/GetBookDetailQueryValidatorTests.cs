@@ -5,6 +5,7 @@ using FluentAssertions;
 using TestSetup;
 using WebApi.BookOperations;
 using WebApi.BookOperations.DeleteBook;
+using WebApi.BookOperations.GetBookDetail;
 using WebApi.DBOperations;
 using WebApi.Entities;
 using Xunit;
@@ -32,7 +33,7 @@ namespace Application.BookOperations.Queries
         [InlineData(1)]
         [InlineData(25)]
         [Theory]
-        public void WhenInvalidBookIdisGiven_Validator_ShouldBeReturnErrors(int bookid)
+        public void WhenInvalidBookIdIsGiven_Validator_ShouldNotBeReturnErrors(int bookid)
         { 
            GetBookDetailQuery query = new GetBookDetailQuery(null,null);
            query.BookId=bookid;  

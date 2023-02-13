@@ -1,11 +1,10 @@
 using AutoMapper;
 using FluentAssertions;
 using TestSetup;
-using WebApi.GenreOperations.DeleteGenre;
 using WebApi.DBOperations;
 using WebApi.Entities;
 using Xunit;
-using static WebApi.GenreOperations.DeleteGenre.DeleteGenreCommand;
+using webApi.Application.GenreOperations.DeleteGenre;
 
 namespace Application.GenreOperations.Commands.DeleteGenre
 {
@@ -16,11 +15,11 @@ namespace Application.GenreOperations.Commands.DeleteGenre
         [InlineData(-1)]
         
 
-        public void WhenInvalidGenreIdisGiven_Validator_ShouldBeReturnErrors(int GenreId)
+        public void WhenInvalidGenreIdisGiven_Validator_ShouldBeReturnErrors(int genreid)
         {
             
             DeleteGenreCommand command = new DeleteGenreCommand(null);
-            command.genreId = genreid;
+            command.GenreId = genreid;
             
             DeleteGenreCommandValidator validations = new DeleteGenreCommandValidator();
             var result = validations.Validate(command);
@@ -33,11 +32,11 @@ namespace Application.GenreOperations.Commands.DeleteGenre
         [InlineData(1)]
         [InlineData(2)]
     
-        public void WhenInvalidGenreIdisGiven_Validator_ShouldBeReturnErrors(int GenreId)
+        public void WhenInvalidGenreIdisGiven_Validator_ShouldNotBeReturnErrors(int genreid)
         {
             
             DeleteGenreCommand command = new DeleteGenreCommand(null);
-            command.genreId = genreid;
+            command.GenreId = genreid;
             
             DeleteGenreCommandValidator validations = new DeleteGenreCommandValidator();
             var result = validations.Validate(command);

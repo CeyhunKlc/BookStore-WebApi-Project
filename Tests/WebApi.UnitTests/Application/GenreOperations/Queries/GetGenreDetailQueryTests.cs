@@ -3,11 +3,10 @@ using System.Linq;
 using AutoMapper;
 using FluentAssertions;
 using TestSetup;
-using WebApi.GenreOperations.Queries.GetGenreDetail;
 using WebApi.DBOperations;
 using WebApi.Entities;
 using Xunit;
-
+using webApi.Application.GenreOperations.Queries.GetGenreDetail;
 
 namespace Application.GenreOperations.Queries
 {
@@ -25,10 +24,10 @@ namespace Application.GenreOperations.Queries
         public void WhenGivenGenreIdIsNotinDb_InvalidOperationException_ShouldBeReturn()
         {
             GetGenreDetailQuery Query = new GetGenreDetailQuery(_context,_mappper);
-            query.GenreId=0;
+            Query.GenreId=0;
 
             FluentActions
-               .Invoking(() => query.Handle())
+               .Invoking(() => Query.Handle())
                .Should().Throw<InvalidOperationException>().And.Message.Should().Be("Kitap Türü Bulunamadı.");
         }
 
@@ -38,8 +37,8 @@ namespace Application.GenreOperations.Queries
            GetGenreDetailQuery query = new GetGenreDetailQuery(_context,_mappper);
            query.GenreId=1;
 
-            var genre = _context.Genres.SingleOrDefaut(genre => genre.Id == genreDetailQuery.GenreId );
+            var genre = _context.Genres.SingleOrDefault(genre => genre.Id == query.GenreId);
             genre.Should().NotBeNull();  
         }
-    }
+    } 
 }

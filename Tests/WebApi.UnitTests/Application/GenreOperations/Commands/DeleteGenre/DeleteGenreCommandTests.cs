@@ -3,6 +3,7 @@ using System.Linq;
 using AutoMapper;
 using FluentAssertions;
 using TestSetup;
+using webApi.Application.GenreOperations.DeleteGenre;
 using WebApi.DBOperations;
 using WebApi.Entities;
 using Xunit;
@@ -40,7 +41,7 @@ namespace Application.GenreOperations.Commands.DeleteGenre
 
                   FluentActions.Invoking(()=> command.Handle()).Invoke();
 
-                  var genre = _context.Genres.SingleOrDefault(genre=> genre.Id == command.genreId);
+                  var genre = _context.Genres.SingleOrDefault(genre=> genre.Id == command.GenreId);
                   genre.Should().Be(null);
             }
 

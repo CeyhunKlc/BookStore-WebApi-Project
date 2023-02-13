@@ -1,11 +1,12 @@
-using AutoMapper;
+
 using FluentAssertions;
 using TestSetup;
-using WebApi.GenreOperations.CreateGenre;
+using webApi.Application.GenreOperations.createGenre;
+using webApi.Application.GenreOperations.CreateGenre;
 using WebApi.DBOperations;
 using WebApi.Entities;
 using Xunit;
-using static WebApi.GenreOperations.CreateGenre.CreateGenreCommand;
+
 
 namespace Application.GenreOperations.Commands.CreateGenre
 {
@@ -19,11 +20,11 @@ namespace Application.GenreOperations.Commands.CreateGenre
         [InlineData("a")]
         [InlineData("ab")]
 
-        public void WhenInvalidInputsGiven_Validator_ShouldBeReturnErrors(String Name)
+        public void WhenInvalidInputsGiven_Validator_ShouldBeReturnErrors(String name)
         {
             
             CreateGenreCommand command = new CreateGenreCommand(null);
-            command.Model = new CreateGenreModel(){Name = name};
+            command.Model = new CreateGenreModel(){Name =name};
             
             CreateGenreCommandValidator validations = new CreateGenreCommandValidator();
             var result = validations.Validate(command);
@@ -39,7 +40,7 @@ namespace Application.GenreOperations.Commands.CreateGenre
         [InlineData("querty")]
 
         
-        public void WhenInvalidInputsGiven_Validator_ShouldBeReturn(String Name)
+        public void WhenInvalidInputsGiven_Validator_ShouldBeReturn(String name)
         {
             
             CreateGenreCommand command = new CreateGenreCommand(null);

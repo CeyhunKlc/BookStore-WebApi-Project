@@ -7276,19 +7276,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kilic\\.nuget\\packages\\": {}
+    "C:\\Users\\Ceyhun\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kilic\\OneDrive\\Masaüstü\\son\\BookStore-WebApi-Project\\Tests\\WebApi.UnitTests\\WebApi.UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\Ceyhun\\Desktop\\Pratikler2\\BookStore\\Tests\\WebApi.UnitTests\\WebApi.UnitTests.csproj",
       "projectName": "WebApi.UnitTests",
-      "projectPath": "C:\\Users\\kilic\\OneDrive\\Masaüstü\\son\\BookStore-WebApi-Project\\Tests\\WebApi.UnitTests\\WebApi.UnitTests.csproj",
-      "packagesPath": "C:\\Users\\kilic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kilic\\OneDrive\\Masaüstü\\son\\BookStore-WebApi-Project\\Tests\\WebApi.UnitTests\\obj\\",
+      "projectPath": "C:\\Users\\Ceyhun\\Desktop\\Pratikler2\\BookStore\\Tests\\WebApi.UnitTests\\WebApi.UnitTests.csproj",
+      "packagesPath": "C:\\Users\\Ceyhun\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ceyhun\\Desktop\\Pratikler2\\BookStore\\Tests\\WebApi.UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kilic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ceyhun\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7302,8 +7302,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\kilic\\OneDrive\\Masaüstü\\son\\BookStore-WebApi-Project\\WebApi\\WebApi.csproj": {
-              "projectPath": "C:\\Users\\kilic\\OneDrive\\Masaüstü\\son\\BookStore-WebApi-Project\\WebApi\\WebApi.csproj"
+            "C:\\Users\\Ceyhun\\Desktop\\Pratikler2\\BookStore\\WebApi\\WebApi.csproj": {
+              "projectPath": "C:\\Users\\Ceyhun\\Desktop\\Pratikler2\\BookStore\\WebApi\\WebApi.csproj"
             }
           }
         }
@@ -7371,7 +7371,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

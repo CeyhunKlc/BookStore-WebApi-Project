@@ -1,6 +1,7 @@
 using FluentAssertions;
 using TestSetup;
-using WebApi.GenreOperations.UpdateGenre;
+using webApi.Application.GenreOperations.UpdateGenre;
+
 
 namespace Application.GenreOperations.Commands.UpdateGenre
 {
