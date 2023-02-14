@@ -8,6 +8,12 @@ using WebApi.DBOperations;
 using WebApi.Middlewires;
 
 var builder = WebApplication.CreateBuilder(args);
+
+ConfigurationManager Configuration = builder.Configuration;
+ 
+
+builder.Services.AddCors();
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
 {
     opt.TokenValidationParameters = new TokenValidationParameters
@@ -33,6 +39,7 @@ builder.Services.AddDbContext<BookStoreDBContext>(options => options.UseInMemory
 builder.Services.AddScoped<IBookStoreDbContext>(Provider => Provider.GetService<IBookStoreDbContext>());
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddSingleton<ILoggerService, DBLogger>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
 
@@ -45,15 +52,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthentication();
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-    app.UseCustomExceptionMiddle();
-});
-
+app.UseCustomExceptionMiddle();
 
 app.MapControllers();
 

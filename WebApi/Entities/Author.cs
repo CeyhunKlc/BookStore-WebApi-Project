@@ -4,7 +4,7 @@ namespace WebApi.Entities
 { 
     public class Author
     {
-        //internal readonly string Surname;
+       
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

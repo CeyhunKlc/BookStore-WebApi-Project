@@ -11,7 +11,7 @@ using WebApi.DBOperations;
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]/[action]")]
+    [Route("[controller]s")]
 
     public class AuthorController : ControllerBase
     {
