@@ -40,7 +40,9 @@ namespace WebApi.Controllers
         {
             _logger.Log(LogLevel.Information, "connect token log.");
 
-            return new Token();
+            return new Token {
+                AccessToken = login.Email
+            };
 
             // CreateTokenCommand command = new CreateTokenCommand(_context, _mapper,_configuration);
             // command.Model=login;
