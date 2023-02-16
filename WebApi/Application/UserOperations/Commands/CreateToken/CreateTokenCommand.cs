@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using AutoMapper;
 using WebApi.DBOperations;
+using Microsoft.Extensions.Configuration;
 using WebApi.Entities;
 using WebApi.TokenOperations;
 using WebApi.TokenOperations.Models;
@@ -33,13 +34,12 @@ namespace WebApi.UserOperations.Commands.CreateToken
                 user.RefreshToken = token.RefreshToken;
                 user.RefreshTokenExpireDate = token.Expiration.AddMinutes(5);
                 _dbContext.SaveChanges();
-                return token;
 
+                return token;
 
             }
             else
-            throw new InvalidOperationException("Kullanıcı Adı - Şifre Hatalı !");
-            
+                throw new InvalidOperationException("Kullanıcı Adı - Şifre Hatalı !");
         }
 
     }

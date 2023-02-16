@@ -9,7 +9,6 @@ using WebApi.Middlewires;
 
 var builder = WebApplication.CreateBuilder(args);
 
-ConfigurationManager Configuration = builder.Configuration;
  
 
 builder.Services.AddCors();

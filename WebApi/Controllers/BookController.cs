@@ -19,7 +19,7 @@ namespace WebApi.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]s")]
+    [Route("[controller]")]
     public class BookController : ControllerBase
     {
 

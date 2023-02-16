@@ -1,3 +1,4 @@
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.Extensions.Configuration;
@@ -10,7 +11,7 @@ namespace WebApi.TokenOperations
     public class TokenHandler
     {
         public IConfiguration Configuration {get; set;}
-        public TokenHandler(IConfiguration configuration)
+        public TokenHandler (IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -18,23 +19,22 @@ namespace WebApi.TokenOperations
         public Token CreateAccessToken(User user)
         {
             Token tokenModel = new Token();
-            SymmetricSecurityKey key= new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Token: Securitykey"]));
-            SigningCredentials Credentials = new SigningCredentials( key ,SecurityAlgorithms.HmacSha256);
+            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("This is my custom secret key for authentication"));
+            SigningCredentials signingCredentials = new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
             
             tokenModel.Expiration = DateTime.Now.AddMinutes(15);
 
-            JwtSecurityToken securityToken = new JwtSecurityToken(
-                issuer: Configuration["Token:Issuer"],
-                audience: Configuration["Token: Audience"],
+            JwtSecurityToken securityToken = new JwtSecurityToken
+            (
+                issuer:Configuration["Token:Issuer"],
+                audience:Configuration["Token: Audience"],
                 expires: tokenModel.Expiration,
                 notBefore : DateTime.Now,
-                signingCredentials : Credentials
+                signingCredentials : signingCredentials
             );
 
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
-            
 
-            //Token Yaratılıyor
             tokenModel.AccessToken = tokenHandler.WriteToken(securityToken);
             tokenModel.RefreshToken= CreateRefreshToken();
 

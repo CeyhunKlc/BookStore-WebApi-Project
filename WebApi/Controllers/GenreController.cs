@@ -17,7 +17,7 @@ using webApi.Application.GenreOperations.createGenre;
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("[controller]s")]
+    [Route("[controller]")]
 
     public class GenreController : ControllerBase
     {
